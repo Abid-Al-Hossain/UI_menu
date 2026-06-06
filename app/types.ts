@@ -27,13 +27,18 @@ export type MenuState = {
   previewState: "default" | "hover" | "focus" | "active" | "open" | "closed" | "selected" | "loading" | "empty" | "error" | "success";
   motion: boolean;
   disabled: boolean;
-  role: "region" | "group" | "status" | "alert" | "dialog" | "menu" | "menubar" | "navigation" | "list" | "tree" | "table" | "tablist" | "form" | "textbox" | "img" | "application";
+  role: "menu" | "menubar";
   itemCount: number;
   groupCount: number;
   submenuCount: number;
   checkableItems: boolean;
   orientation: "horizontal" | "vertical";
   rovingFocus: boolean;
+  side?: "top" | "right" | "bottom" | "left";
+  align?: "start" | "center" | "end";
+  offset?: number;
+  dismissOnSelect?: boolean;
+  showShortcuts?: boolean;
 };
 
 export type StudioPreset = { id: string; family: string; archetype: string; variant: string; size: string; tags: string[]; state: MenuState };
