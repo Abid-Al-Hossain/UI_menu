@@ -37,6 +37,7 @@ function itemStyle(model, active, disabled) {
     cursor: disabled ? "not-allowed" : "pointer",
     textAlign: "left",
     fontWeight: 700,
+    transition: model.motion ? "background 150ms ease, color 150ms ease" : "none",
   };
 }
 
