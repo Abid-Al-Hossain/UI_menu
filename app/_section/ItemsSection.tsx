@@ -3,14 +3,31 @@
 import { SectionCard } from "@/components/shared/layout/SectionCard";
 import Slider from "@/components/shared/input/Slider";
 import Switch from "@/components/shared/input/Switch";
+import Input from "@/components/shared/input/Input";
 import type { MenuState } from "../types";
 
 type Props = { state: MenuState; update: <K extends keyof MenuState>(key: K, value: MenuState[K]) => void };
 
 export default function ItemsSection({ state, update }: Props) {
-  return <SectionCard title="Items" subtitle="Items controls for native menu generation."><Slider label="Item count" value={state.itemCount} min={1} max={14} step={1} onChange={(value) => update("itemCount", value)} />
-<Slider label="Groups" value={state.groupCount} min={1} max={8} step={1} onChange={(value) => update("groupCount", value)} />
-<Slider label="Submenus" value={state.submenuCount} min={0} max={5} step={1} onChange={(value) => update("submenuCount", value)} />
-<Switch label="Checkbox/radio items" checked={state.checkableItems} onChange={(value) => update("checkableItems", value)} />
-<Switch label="Show shortcuts" checked={state.showShortcuts ?? true} onChange={(value) => update("showShortcuts", value)} /></SectionCard>;
+  return (
+    <div className="space-y-4">
+      <SectionCard title="Items" subtitle="Items controls for native menu generation.">
+        <Slider label="Item count" value={state.itemCount} min={1} max={14} step={1} onChange={(value) => update("itemCount", value)} />
+        <Slider label="Groups" value={state.groupCount} min={1} max={8} step={1} onChange={(value) => update("groupCount", value)} />
+        <Slider label="Submenus" value={state.submenuCount} min={0} max={5} step={1} onChange={(value) => update("submenuCount", value)} />
+        <Switch label="Checkbox/radio items" checked={state.checkableItems} onChange={(value) => update("checkableItems", value)} />
+        <Switch label="Show shortcuts" checked={state.showShortcuts ?? true} onChange={(value) => update("showShortcuts", value)} />
+      </SectionCard>
+      <SectionCard title="Item geometry" subtitle="Per-item sizing and spacing.">
+        <Slider label="Item height" value={state.itemHeight} min={28} max={64} step={1} onChange={(value) => update("itemHeight", value)} />
+        <Slider label="Item padding" value={state.itemPadding} min={4} max={32} step={1} onChange={(value) => update("itemPadding", value)} />
+        <Slider label="Item radius" value={state.itemRadius} min={0} max={24} step={1} onChange={(value) => update("itemRadius", value)} />
+        <Slider label="Icon size" value={state.iconSize} min={10} max={24} step={1} onChange={(value) => update("iconSize", value)} />
+      </SectionCard>
+      <SectionCard title="Panel geometry" subtitle="Menu panel radius and elevation.">
+        <Slider label="Menu radius" value={state.menuRadius} min={0} max={32} step={1} onChange={(value) => update("menuRadius", value)} />
+        <Input label="Menu shadow (CSS)" value={state.menuShadow} onChange={(value: string) => update("menuShadow", value)} placeholder="0 18px 40px rgba(2,6,23,0.45)" />
+      </SectionCard>
+    </div>
+  );
 }

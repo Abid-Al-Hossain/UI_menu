@@ -1,4 +1,4 @@
-export type SectionId = "presets" | "basics" | "metadata" | "content" | "items" | "behavior" | "layout" | "placement" | "sizing" | "colors" | "border" | "radius" | "shadow" | "typography" | "transitions" | "focus-ring" | "states" | "accessibility";
+export type SectionId = "presets" | "basics" | "metadata" | "content" | "items" | "behavior" | "layout" | "placement" | "sizing" | "colors" | "border" | "radius" | "shadow" | "typography" | "transitions" | "focus-ring" | "states" | "disabled" | "accessibility";
 
 export type MenuState = {
   title: string;
@@ -54,11 +54,18 @@ export type MenuState = {
   muted: string;
   accent: string;
   border: string;
+  itemActiveBg: string;
   titleSize: number;
   bodySize: number;
   fontWeight: number;
   previewState: "default" | "hover" | "focus" | "active" | "open" | "closed" | "selected" | "loading" | "empty" | "error" | "success";
   disabled: boolean;
+  disabledOpacity: number;
+  disabledCursor: "not-allowed" | "default" | "pointer";
+  disabledUseCustomColors: boolean;
+  disabledBg: string;
+  disabledText: string;
+  disabledBorder: string;
   role: "menu" | "menubar";
   itemCount: number;
   groupCount: number;
@@ -66,6 +73,30 @@ export type MenuState = {
   checkableItems: boolean;
   orientation: "horizontal" | "vertical";
   rovingFocus: boolean;
+  // Menu/submenu panel
+  menuBg: string;
+  menuBorder: string;
+  menuRadius: number;
+  menuShadow: string;
+  // Items
+  itemBg: string;
+  itemText: string;
+  itemHoverBg: string;
+  itemHoverText: string;
+  itemDisabledColor: string;
+  itemHeight: number;
+  itemPadding: number;
+  itemRadius: number;
+  // Structure
+  separatorColor: string;
+  groupHeaderColor: string;
+  groupDividerColor: string;
+  // Item detail
+  shortcutColor: string;
+  checkmarkColor: string;
+  submenuIndicatorColor: string;
+  iconColor: string;
+  iconSize: number;
   side?: "top" | "right" | "bottom" | "left";
   align?: "start" | "center" | "end";
   offset?: number;
@@ -143,6 +174,10 @@ export const SECTIONS: Array<{ id: SectionId; label: string }> = [
   {
     "id": "states",
     "label": "State Preview"
+  },
+  {
+    "id": "disabled",
+    "label": "Disabled"
   },
   {
     "id": "accessibility",
