@@ -10,25 +10,32 @@ export default function ColorsSection({ state, update }: Props) {
   return (
     <div className="space-y-4">
       <SectionCard title="Shell" subtitle="Base container colors.">
+      <div className="space-y-4">
         <ColorControl label="Background" value={state.background} onChange={(v) => update("background", v)} />
         <ColorControl label="Foreground" value={state.foreground} onChange={(v) => update("foreground", v)} />
         <ColorControl label="Accent" value={state.accent} onChange={(v) => update("accent", v)} />
         <ColorControl label="Muted" value={state.muted} onChange={(v) => update("muted", v)} />
         <ColorControl label="Border" value={state.border} onChange={(v) => update("border", v)} />
-      </SectionCard>
+      </div>
+    </SectionCard>
       <SectionCard title="Menu panel" subtitle="Menu bar and submenu surface.">
+      <div className="space-y-4">
         <ColorControl label="Menu background" value={state.menuBg} onChange={(v) => update("menuBg", v)} />
         <ColorControl label="Menu border" value={state.menuBorder} onChange={(v) => update("menuBorder", v)} />
-      </SectionCard>
+      </div>
+    </SectionCard>
       <SectionCard title="Items" subtitle="Menu item color states.">
+      <div className="space-y-4">
         <ColorControl label="Item background" value={state.itemBg} onChange={(v) => update("itemBg", v)} />
         <ColorControl label="Item text" value={state.itemText} onChange={(v) => update("itemText", v)} />
         <ColorControl label="Item hover background" value={state.itemHoverBg} onChange={(v) => update("itemHoverBg", v)} />
         <ColorControl label="Item hover text" value={state.itemHoverText} onChange={(v) => update("itemHoverText", v)} />
         <ColorControl label="Active background" value={state.itemActiveBg} onChange={(v) => update("itemActiveBg", v)} />
         <ColorControl label="Item disabled text" value={state.itemDisabledColor} onChange={(v) => update("itemDisabledColor", v)} />
-      </SectionCard>
+      </div>
+    </SectionCard>
       <SectionCard title="Structure" subtitle="Separators, group headers, and item details.">
+      <div className="space-y-4">
         <ColorControl label="Separator" value={state.separatorColor} onChange={(v) => update("separatorColor", v)} />
         <ColorControl label="Group header" value={state.groupHeaderColor} onChange={(v) => update("groupHeaderColor", v)} />
         <ColorControl label="Group divider" value={state.groupDividerColor} onChange={(v) => update("groupDividerColor", v)} />
@@ -36,7 +43,8 @@ export default function ColorsSection({ state, update }: Props) {
         <ColorControl label="Icon" value={state.iconColor} onChange={(v) => update("iconColor", v)} />
         <ColorControl label="Checkmark" value={state.checkmarkColor} onChange={(v) => update("checkmarkColor", v)} />
         <ColorControl label="Submenu indicator" value={state.submenuIndicatorColor} onChange={(v) => update("submenuIndicatorColor", v)} />
-      </SectionCard>
+      </div>
+    </SectionCard>
     </div>
   );
 }

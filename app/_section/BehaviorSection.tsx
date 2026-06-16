@@ -7,7 +7,9 @@ import type { MenuState } from "../types";
 type Props = { state: MenuState; update: <K extends keyof MenuState>(key: K, value: MenuState[K]) => void };
 
 export default function BehaviorSection({ state, update }: Props) {
-  return <SectionCard title="Behavior" subtitle="Behavior controls for native menu generation."><Switch label="Disabled" checked={state.disabled} onChange={(value) => update("disabled", value)} />
+  return <SectionCard title="Behavior" subtitle="Behavior controls for native menu generation.">
+      <div className="space-y-4"><Switch label="Disabled" checked={state.disabled} onChange={(value) => update("disabled", value)} />
 <Switch label="Roving focus" checked={state.rovingFocus} onChange={(value) => update("rovingFocus", value)} />
-<Switch label="Dismiss on select" checked={state.dismissOnSelect ?? true} onChange={(value) => update("dismissOnSelect", value)} /></SectionCard>;
+<Switch label="Dismiss on select" checked={state.dismissOnSelect ?? true} onChange={(value) => update("dismissOnSelect", value)} /></div>
+    </SectionCard>;
 }
