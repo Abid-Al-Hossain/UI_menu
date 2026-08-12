@@ -1,4 +1,4 @@
-export type SectionId = "presets" | "basics" | "metadata" | "content" | "items" | "behavior" | "layout" | "placement" | "sizing" | "colors" | "border" | "radius" | "shadow" | "typography" | "transitions" | "focus-ring" | "states" | "disabled" | "accessibility";
+export type SectionId = "presets" | "basics" | "metadata" | "items" | "behavior" | "layout" | "placement" | "sizing" | "colors" | "border" | "radius" | "shadow" | "typography" | "transitions" | "focus-ring" | "states" | "disabled" | "accessibility";
 
 export type MenuState = {
   title: string;
@@ -118,10 +118,6 @@ export const SECTIONS: Array<{ id: SectionId; label: string }> = [
   {
     "id": "metadata",
     "label": "Metadata"
-  },
-  {
-    "id": "content",
-    "label": "Content"
   },
   {
     "id": "items",
